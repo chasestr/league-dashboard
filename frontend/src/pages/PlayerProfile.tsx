@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import PlayerHeader from '../components/PlayerHeader';
 
 interface PlayerData {
   id: string;
@@ -19,7 +20,7 @@ const PlayerPage: React.FC = () => {
     const fetchPlayerData = async () => {
       try {
         const response = await axios.get(`http://localhost:5000/api/player/players/${gameName}/${tagLine}`);
-        setPlayerData(response.data);
+        setPlayerData({...response.data, name: gameName});
       } catch (error) {
         console.error('Error fetching player data:', error);
       }
@@ -33,14 +34,7 @@ const PlayerPage: React.FC = () => {
   }
 
   return (
-    <div>
-      <h1>{playerData.name}</h1>
-      <p>Level: {playerData.summonerLevel}</p>
-      <img
-        src={`http://ddragon.leagueoflegends.com/cdn/14.14.1/img/profileicon/${playerData.profileIconId}.png`}
-        alt="Profile Icon"
-      />
-    </div>
+    <PlayerHeader {...playerData} tagLine={tagLine ? tagLine : ''}/>
   );
 };
 
