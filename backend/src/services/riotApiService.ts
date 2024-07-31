@@ -1,15 +1,24 @@
 import axios from 'axios';
+import { REGION_MAPPING } from '../regionMapping';
 
 const RIOT_API_KEY = process.env.RIOT_API_KEY;
 
-export const getPlayerData = async (gameName: string, tagLine: string) => {
+export const getPlayerData = async (gameName: string, tagLine: string, region: string) => {
   if (!RIOT_API_KEY) {
     throw new Error('Riot API key is not set in the environment variables');
   }
 
+  const regionConfig = REGION_MAPPING[region];
+
+  if (!regionConfig) {
+    throw new Error('Invalid region specified');
+  }
+
+  const { platform, regional } = regionConfig;
+
   try {
     // Fetch PUUID using gameName and tagLine
-    const accountResponse = await axios.get(`https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${gameName}/${tagLine}`, {
+    const accountResponse = await axios.get(`https://${regional}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${gameName}/${tagLine}`, {
       headers: {
         'X-Riot-Token': RIOT_API_KEY
       }
@@ -17,7 +26,7 @@ export const getPlayerData = async (gameName: string, tagLine: string) => {
     const { puuid } = accountResponse.data;
 
     // Fetch player data using PUUID
-    const playerResponse = await axios.get(`https://NA1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${puuid}`, {
+    const playerResponse = await axios.get(`https://${platform}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${puuid}`, {
       headers: {
         'X-Riot-Token': RIOT_API_KEY
       }

@@ -11,7 +11,7 @@ interface PlayerData {
 }
 
 const PlayerPage: React.FC = () => {
-  const { gameName, tagLine } = useParams<{ gameName: string; tagLine: string }>();
+  const { region, gameName, tagLine } = useParams<{ region:string; gameName: string; tagLine: string }>();
   console.log('Player ID:', gameName);
   console.log('Region:', tagLine);
   const [playerData, setPlayerData] = useState<PlayerData | null>(null);
@@ -19,7 +19,7 @@ const PlayerPage: React.FC = () => {
   useEffect(() => {
     const fetchPlayerData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/player/players/${gameName}/${tagLine}`);
+        const response = await axios.get(`http://localhost:5000/api/player/players/${gameName}/${tagLine}?region=${region}`);
         setPlayerData({...response.data, name: gameName});
       } catch (error) {
         console.error('Error fetching player data:', error);
@@ -27,14 +27,14 @@ const PlayerPage: React.FC = () => {
     };
 
     fetchPlayerData();
-  }, [gameName, tagLine]);
+  }, [region, gameName, tagLine]);
 
   if (!playerData) {
     return <div>Loading...</div>;
   }
 
   return (
-    <PlayerHeader {...playerData} tagLine={tagLine ? tagLine : ''}/>
+    <PlayerHeader {...playerData} region={region ? region : ''} tagLine={tagLine ? tagLine : ''}/>
   );
 };
 

@@ -8,7 +8,7 @@ const App: React.FC = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/player/:gameName/:tagLine" element={<PlayerProfile />} />
+        <Route path="/player/:region/:gameName/:tagLine" element={<PlayerProfile />} />
       </Routes>
     </Router>
   );
