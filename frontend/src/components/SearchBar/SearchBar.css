@@ -1,0 +1,67 @@
+.search-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: #f1f1f1;
+  border-radius: 2.5vw;
+  padding: 0.5vw 1vw;
+  box-shadow: 0 0.2vw 0.5vw rgba(0, 0, 0, 0.1);
+  margin-right: 1vw;
+  margin-left: 1vw;
+}
+
+.search-bar__tagline,
+.search-bar__button {
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.search-bar__region,
+.search-bar__game-name,
+.search-bar__tagline-container {
+  border: none;
+  outline: none;
+  padding: 1vw;
+  border-radius: 2.5vw;
+  margin-right: 1vw;
+  margin-top: 0.5vw;
+  margin-bottom: 0.5vw;
+}
+
+.search-bar__region {
+  flex: 1;
+}
+
+.search-bar__game-name {
+  flex: 2;
+}
+
+.search-bar__tagline-container {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding-left: 1vw;
+  flex: 1;
+}
+
+.search-bar__tagline-hash {
+  margin-right: 0.5vw;
+  color: #aaa;
+}
+
+.search-bar__tagline {
+  flex: 1;
+}
+
+.search-bar__button {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 1vw 2vw;
+  border-radius: 2.5vw;
+  cursor: pointer;
+}
+
+.search-bar__button:hover {
+  background-color: #45a049;
+}
