@@ -1,10 +1,13 @@
 import React from 'react';
+import SearchBar from '../components/SearchBar/SearchBar';
+import { Box } from '@mui/material';
 
 const Home: React.FC = () => {
   return (
-    <div>
-      <h1>Home Page</h1>
-    </div>
+    <Box>
+      <h1>League Dashboard</h1>
+      <SearchBar/>
+    </Box>
   );
 }
 
