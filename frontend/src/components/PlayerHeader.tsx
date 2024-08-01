@@ -5,6 +5,7 @@ interface PlayerHeaderProps {
   id: string;
   name: string;
   tagLine: string;
+  region: string;
   profileIconId: number;
   summonerLevel: number;
 }
@@ -23,7 +24,10 @@ const PlayerHeader: React.FC<PlayerHeaderProps> = (p) => {
             <Box fontWeight={"bold"}>{p.name}</Box>
             <Box color="gray" ml={"1vw"}>{`#${p.tagLine}`}</Box>
         </Box>
-        <Box display={"flex"} fontSize={"1.5vw"}>Level {p.summonerLevel}</Box>
+        <Box display={"flex"} fontSize={"1.5vw"}>
+          <Box>Level {p.summonerLevel}</Box>
+          <Box ml={"1vw"}>{p.region}</Box>
+        </Box>
       </Box>
     </Box>
   );
