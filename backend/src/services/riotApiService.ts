@@ -3,6 +3,19 @@ import { REGION_MAPPING } from '../regionMapping';
 
 const RIOT_API_KEY = process.env.RIOT_API_KEY;
 
+interface RankedData {
+  queueType: string;
+  tier: string;
+  rank: string;
+  leaguePoints: number;
+  wins: number;
+  losses: number;
+  veteran: boolean;
+  inactive: boolean;
+  freshBlood: boolean;
+  hotStreak: boolean;
+}
+
 export const getPlayerData = async (gameName: string, tagLine: string, region: string) => {
   if (!RIOT_API_KEY) {
     throw new Error('Riot API key is not set in the environment variables');
@@ -32,7 +45,21 @@ export const getPlayerData = async (gameName: string, tagLine: string, region: s
       }
     });
 
-    return playerResponse.data;
+    // Fetch ranked data using summoner ID
+    const rankedResponse = await axios.get(`https://${platform}.api.riotgames.com/lol/league/v4/entries/by-summoner/${playerResponse.data.id}`, {
+      headers: {
+        'X-Riot-Token': RIOT_API_KEY
+      }
+    });
+    const rankedData = rankedResponse.data;
+    const soloData = rankedData.filter((d: RankedData) => d.queueType == "RANKED_SOLO_5x5")
+    const flexData = rankedData.filter((d: RankedData) => d.queueType == "RANKED_FLEX_SR")
+
+    return {
+      ...playerResponse.data,
+      soloData,
+      flexData,
+    };
   } catch (error: any) {
     if (axios.isAxiosError(error)) {
       console.error('Axios error:', error.response?.data || error.message);
