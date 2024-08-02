@@ -8,6 +8,17 @@ interface PlayerData {
   name: string;
   profileIconId: number;
   summonerLevel: number;
+  soloData: Array<RankedData>;
+  flexData: Array<RankedData>;
+}
+
+export interface RankedData {
+  queueType: string;
+  tier: string;
+  rank: string;
+  leaguePoints: number;
+  wins: number;
+  losses: number;
 }
 
 const PlayerPage: React.FC = () => {
