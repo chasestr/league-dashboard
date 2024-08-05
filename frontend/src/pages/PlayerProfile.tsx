@@ -23,8 +23,7 @@ export interface RankedData {
 
 const PlayerPage: React.FC = () => {
   const { region, gameName, tagLine } = useParams<{ region:string; gameName: string; tagLine: string }>();
-  console.log('Player ID:', gameName);
-  console.log('Region:', tagLine);
+
   const [playerData, setPlayerData] = useState<PlayerData | null>(null);
 
   useEffect(() => {
