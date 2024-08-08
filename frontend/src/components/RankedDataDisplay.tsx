@@ -23,6 +23,8 @@ const RankedDataDisplay: React.FC<RankedDataDisplayProps> = ({ soloData, flexDat
           { id: 0, value: data.wins, label: 'Wins', color: "green" },
           { id: 1, value: data.losses, label: 'Losses', color: "red" }
         ],
+        highlightScope: { faded: 'global', highlighted: 'item' },
+        faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
       }]}
       height={200}
       width={200}
