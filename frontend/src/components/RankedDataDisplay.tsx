@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Paper } from '@mui/material';
 import { RankedData } from '../pages/PlayerProfile';
+import { PieChart } from '@mui/x-charts';
 
 interface RankedDataDisplayProps {
   soloData: RankedData[];
@@ -17,6 +18,15 @@ const RankedDataDisplay: React.FC<RankedDataDisplayProps> = ({ soloData, flexDat
       flexDirection: 'column',
       alignItems: 'flex-start',
     }}>
+      <PieChart series={[{
+        data: [
+          { id: 0, value: data.wins, label: 'Wins', color: "green" },
+          { id: 1, value: data.losses, label: 'Losses', color: "red" }
+        ],
+      }]}
+      height={200}
+      width={200}
+      />
       <div style={{ fontSize: '2vw', fontWeight: 'bold' }}>
         <u>{title}:</u>
       </div>
