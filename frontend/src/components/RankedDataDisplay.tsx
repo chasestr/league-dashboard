@@ -16,7 +16,7 @@ const RankedDataDisplay: React.FC<RankedDataDisplayProps> = ({ soloData, flexDat
       marginLeft: firstCard ? "0" : "1vw",
       display: 'flex',
       flexDirection: 'column',
-      alignItems: 'flex-start',
+      alignItems: 'center',
     }}>
       <PieChart series={[{
         data: [
