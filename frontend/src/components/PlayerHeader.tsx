@@ -26,7 +26,7 @@ const PlayerHeader: React.FC<PlayerHeaderProps> = (p) => {
       <Box display={"flex"} ml={"2vw"} flexDirection={"column"}>
         <Box display={"flex"} fontSize={"3vw"}>
           <Box fontWeight={"bold"}>{p.name}</Box>
-          <Box color="gray" ml={"1vw"}>{`#${p.tagLine}`}</Box>
+          <Box color="black" ml={"1vw"}>{`#${p.tagLine}`}</Box>
         </Box>
         <Box display={"flex"} fontSize={"1.5vw"}>
           <Box>Level {p.summonerLevel}</Box>
