@@ -32,7 +32,7 @@ const PlayerHeader: React.FC<PlayerHeaderProps> = (p) => {
           <Box>Level {p.summonerLevel}</Box>
           <Box ml={"1vw"}>{p.region}</Box>
         </Box>
-        <RankedDataDisplay soloData={p.soloData} flexData={p.flexData}/>
+        <RankedDataDisplay soloData={p.soloData} flexData={p.flexData} />
       </Box>
     </Box>
   );

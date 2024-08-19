@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
-import PlayerHeader from '../components/PlayerHeader';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import PlayerHeader from "../components/PlayerHeader";
 
 interface PlayerData {
   id: string;
@@ -22,17 +22,23 @@ export interface RankedData {
 }
 
 const PlayerPage: React.FC = () => {
-  const { region, gameName, tagLine } = useParams<{ region:string; gameName: string; tagLine: string }>();
+  const { region, gameName, tagLine } = useParams<{
+    region: string;
+    gameName: string;
+    tagLine: string;
+  }>();
 
   const [playerData, setPlayerData] = useState<PlayerData | null>(null);
 
   useEffect(() => {
     const fetchPlayerData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/player/players/${gameName}/${tagLine}?region=${region}`);
-        setPlayerData({...response.data, name: gameName});
+        const response = await axios.get(
+          `http://localhost:5000/api/player/players/${gameName}/${tagLine}?region=${region}`
+        );
+        setPlayerData({ ...response.data, name: gameName });
       } catch (error) {
-        console.error('Error fetching player data:', error);
+        console.error("Error fetching player data:", error);
       }
     };
 
@@ -44,7 +50,11 @@ const PlayerPage: React.FC = () => {
   }
 
   return (
-    <PlayerHeader {...playerData} region={region ? region : ''} tagLine={tagLine ? tagLine : ''}/>
+    <PlayerHeader
+      {...playerData}
+      region={region ? region : ""}
+      tagLine={tagLine ? tagLine : ""}
+    />
   );
 };
 
