@@ -1,7 +1,7 @@
 import { Avatar, Box } from "@mui/material";
 import React from "react";
 import { RankedData } from "../../pages/PlayerProfile";
-import RankedDataDisplay from "../RankedDataDisplay";
+import RankedDataDisplay from "../RankedDataDisplay/RankedDataDisplay";
 import "./PlayerHeader.css";
 
 interface PlayerHeaderProps {

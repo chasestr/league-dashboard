@@ -1,7 +1,8 @@
 import React from "react";
 import { Box, Paper } from "@mui/material";
-import { RankedData } from "../pages/PlayerProfile";
+import { RankedData } from "../../pages/PlayerProfile";
 import { PieChart } from "@mui/x-charts";
+import "./RankedDataDisplay.css";
 
 interface RankedDataDisplayProps {
   soloData: RankedData[];
@@ -19,13 +20,9 @@ const RankedDataDisplay: React.FC<RankedDataDisplayProps> = ({
   ) => (
     <Paper
       elevation={3}
+      className="card-container"
       style={{
-        padding: "1.5vw",
-        marginTop: "1vw",
         marginLeft: firstCard ? "0" : "1vw",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
       }}
     >
       <PieChart
@@ -42,13 +39,13 @@ const RankedDataDisplay: React.FC<RankedDataDisplayProps> = ({
         height={200}
         width={200}
       />
-      <div style={{ fontSize: "2vw", fontWeight: "bold" }}>
+      <div className="title">
         <u>{title}:</u>
       </div>
-      <div style={{ fontSize: "1.5vw" }}>
+      <div className="rank">
         {data.tier} {data.rank} - {data.leaguePoints} LP
       </div>
-      <div style={{ fontSize: "1.5vw", fontWeight: "bold" }}>
+      <div className="wl-ratio">
         {data.wins}W-{data.losses}L -{" "}
         {((data.wins / (data.wins + data.losses)) * 100).toFixed(2)}%
       </div>
@@ -56,12 +53,7 @@ const RankedDataDisplay: React.FC<RankedDataDisplayProps> = ({
   );
 
   return (
-    <Box
-      display="flex"
-      flexDirection="row"
-      flexWrap="wrap"
-      justifyContent="center"
-    >
+    <Box className="ranked-container">
       {soloData.length > 0 && renderRankedInfo(soloData[0], "Solo", true)}
       {flexData.length > 0 && renderRankedInfo(flexData[0], "Flex", false)}
     </Box>

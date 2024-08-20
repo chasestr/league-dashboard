@@ -1,0 +1,28 @@
+.ranked-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card-container {
+    padding: 1.5vw;
+    margin-top: 1vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    font-size: 2vw;
+    font-weight: bold;
+}
+
+.rank {
+    font-size: 1.5vw;
+}
+
+.wl-ratio {
+    font-size: 1.5vw;
+    font-weight: bold;
+}
