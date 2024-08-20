@@ -1,0 +1,31 @@
+.profile-icon {
+    border-radius: 1vw;
+    object-fit: cover;
+    width: 15vw;
+    height: 15vw;
+}
+
+.container {
+    display: flex;
+    margin-left: 2vw;
+    flex-direction: column;
+}
+
+.first-header-container {
+    display: flex;
+    font-size: 3vw;
+    color: "#fff";
+}
+
+.player-name {
+    font-weight: bold;
+}
+
+.tag-line, .region {
+    margin-left: 1vw;
+}
+
+.second-header-container {
+    display: flex;
+    font-size: 1.5vw;
+}
