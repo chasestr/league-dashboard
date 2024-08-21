@@ -71,6 +71,30 @@ export const getPlayerData = async (
     const flexData = rankedData.filter(
       (d: RankedData) => d.queueType == "RANKED_FLEX_SR"
     );
+    const recentMatches = await axios.get(
+      `https://${regional}.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids`,
+      {
+        headers: {
+          "X-Riot-Token": RIOT_API_KEY,
+        },
+      }
+    );
+    /* 
+    TO-DO:
+    fetch match data for 10-20 most recent matches (if rate limit allows) and create component
+    to display data for each match on PlayerProfile page
+    */
+    const recentMatchesIds = recentMatches.data.slice(0, 4);
+    const matchData = await axios.get(
+      `https://${regional}.api.riotgames.com/lol/match/v5/matches/${recentMatchesIds[0]}`,
+      {
+        headers: {
+          "X-Riot-Token": RIOT_API_KEY,
+        },
+      }
+    );
+    console.log(matchData);
+    /* */
 
     return {
       ...playerResponse.data,
