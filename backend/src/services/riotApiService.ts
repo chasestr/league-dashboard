@@ -84,22 +84,28 @@ export const getPlayerData = async (
     fetch match data for 10-20 most recent matches (if rate limit allows) and create component
     to display data for each match on PlayerProfile page
     */
-    const recentMatchesIds = recentMatches.data.slice(0, 4);
-    const matchData = await axios.get(
-      `https://${regional}.api.riotgames.com/lol/match/v5/matches/${recentMatchesIds[0]}`,
-      {
-        headers: {
-          "X-Riot-Token": RIOT_API_KEY,
-        },
-      }
+    const recentMatchesIds = recentMatches.data;
+    const matchData = await recentMatchesIds.slice(0,5).map(async (id: string) => {
+      await new Promise(r => setTimeout(r, 6000));
+      return (
+        await axios.get(
+          `https://${regional}.api.riotgames.com/lol/match/v5/matches/${id}`,
+          {
+            headers: {
+              "X-Riot-Token": RIOT_API_KEY,
+            },
+          }
+        )
+      )
+    }
     );
-    console.log(matchData);
     /* */
 
     return {
       ...playerResponse.data,
       soloData,
       flexData,
+      matchData
     };
   } catch (error: any) {
     if (axios.isAxiosError(error)) {
