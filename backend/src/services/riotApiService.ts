@@ -79,27 +79,9 @@ export const getPlayerData = async (
         },
       }
     );
-    /* 
-    TO-DO:
-    fetch match data for 10-20 most recent matches (if rate limit allows) and create component
-    to display data for each match on PlayerProfile page
-    */
+
     const recentMatchesIds = recentMatches.data;
-    const matchData = await recentMatchesIds.slice(0,5).map(async (id: string) => {
-      await new Promise(r => setTimeout(r, 6000));
-      return (
-        await axios.get(
-          `https://${regional}.api.riotgames.com/lol/match/v5/matches/${id}`,
-          {
-            headers: {
-              "X-Riot-Token": RIOT_API_KEY,
-            },
-          }
-        )
-      )
-    }
-    );
-    /* */
+    const matchData = await getMatchData(recentMatchesIds, regional);
 
     return {
       ...playerResponse.data,
@@ -116,3 +98,27 @@ export const getPlayerData = async (
     throw new Error("Error fetching player data from Riot API");
   }
 };
+
+const getMatchData = (matchIds: Array<string>, regional: string) => {
+  const matchData = matchIds.map(async (id: string) => {
+    /* Obviously this approach isn't ideal as it significantly slows down the 
+    application when trying to fetch user match history. The only reason that 
+    this approach is being used is due to the significant limitations that are 
+    placed on the number of api requests that the Riot developer api allows for */
+    await new Promise(resolve => setTimeout(resolve, 10000));
+    /* */
+    const data = await axios.get(
+      `https://${regional}.api.riotgames.com/lol/match/v5/matches/${id}`,
+      {
+        headers: {
+          "X-Riot-Token": RIOT_API_KEY,
+        },
+      }
+    );
+    return (
+      data.data.metadata
+    )
+  }
+  );
+  return Promise.all(matchData);
+}
