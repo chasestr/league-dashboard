@@ -2,14 +2,22 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import PlayerHeader from "../components/PlayerHeader/PlayerHeader";
+import MatchHistory from "../components/MatchHistory/MatchHistory";
 
-interface PlayerData {
+export interface PlayerData {
   id: string;
   name: string;
   profileIconId: number;
   summonerLevel: number;
   soloData: Array<RankedData>;
   flexData: Array<RankedData>;
+  matchData: Array<MetaData>;
+}
+
+export interface MetaData {
+  dataVersion: string;
+  matchId: string;
+  participants: Array<string>;
 }
 
 export interface RankedData {
@@ -50,11 +58,14 @@ const PlayerPage: React.FC = () => {
   }
 
   return (
-    <PlayerHeader
+    <div>
+      <PlayerHeader
       {...playerData}
       region={region ? region : ""}
       tagLine={tagLine ? tagLine : ""}
-    />
+      />
+      <MatchHistory {...playerData}/>
+    </div>
   );
 };
 
