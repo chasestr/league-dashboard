@@ -1,20 +1,8 @@
 import axios from "axios";
 import { REGION_MAPPING } from "../regionMapping";
+import { RankedData } from "../types/RankedData";
 
 const RIOT_API_KEY = process.env.RIOT_API_KEY;
-
-interface RankedData {
-  queueType: string;
-  tier: string;
-  rank: string;
-  leaguePoints: number;
-  wins: number;
-  losses: number;
-  veteran: boolean;
-  inactive: boolean;
-  freshBlood: boolean;
-  hotStreak: boolean;
-}
 
 export const getPlayerData = async (
   gameName: string,
@@ -116,7 +104,7 @@ const getMatchData = (matchIds: Array<string>, regional: string) => {
       }
     );
     return (
-      data.data.metadata
+      data.data
     )
   }
   );
