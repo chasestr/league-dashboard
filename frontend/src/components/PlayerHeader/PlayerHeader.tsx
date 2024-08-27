@@ -1,7 +1,7 @@
 import { Avatar, Box } from "@mui/material";
 import React from "react";
-import { RankedData } from "../../pages/PlayerProfile";
 import RankedDataDisplay from "../RankedDataDisplay/RankedDataDisplay";
+import { RankedData } from "../../types/RankedData";
 import "./PlayerHeader.css";
 
 interface PlayerHeaderProps {
@@ -22,6 +22,7 @@ const PlayerHeader: React.FC<PlayerHeaderProps> = (p) => {
         className="profile-icon"
         alt="Profile Icon"
         src={`http://ddragon.leagueoflegends.com/cdn/14.14.1/img/profileicon/${p.profileIconId}.png`}
+        style={{width: "10vw", height: "10vw"}}
       />
       <Box className="container">
         <Box className="first-header-container">
