@@ -3,31 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import PlayerHeader from "../components/PlayerHeader/PlayerHeader";
 import MatchHistory from "../components/MatchHistory/MatchHistory";
-
-export interface PlayerData {
-  id: string;
-  name: string;
-  profileIconId: number;
-  summonerLevel: number;
-  soloData: Array<RankedData>;
-  flexData: Array<RankedData>;
-  matchData: Array<MetaData>;
-}
-
-export interface MetaData {
-  dataVersion: string;
-  matchId: string;
-  participants: Array<string>;
-}
-
-export interface RankedData {
-  queueType: string;
-  tier: string;
-  rank: string;
-  leaguePoints: number;
-  wins: number;
-  losses: number;
-}
+import { PlayerData } from "../types/PlayerData";
 
 const PlayerPage: React.FC = () => {
   const { region, gameName, tagLine } = useParams<{
