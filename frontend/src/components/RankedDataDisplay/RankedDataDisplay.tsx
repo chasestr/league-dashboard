@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, Paper } from "@mui/material";
-import { RankedData } from "../../pages/PlayerProfile";
 import { PieChart } from "@mui/x-charts";
 import "./RankedDataDisplay.css";
+import { RankedData } from "../../types/RankedData";
 
 interface RankedDataDisplayProps {
   soloData: RankedData[];
