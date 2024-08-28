@@ -1,14 +1,16 @@
 import React from "react";
-import { MetaData, PlayerData } from "../../pages/PlayerProfile";
+import { PlayerData } from "../../types/PlayerData";
+import { MatchData } from "../../types/MatchData";
+import MatchCard from "../MatchCard/MatchCard";
 
 const MatchHistory: React.FC<PlayerData> = (p) => {
-    return (
-        <div>
-            {p.matchData.map((d: MetaData) => (
-            <div key={d.matchId}>{d.matchId}</div>
-            ))}
-        </div>
-    );
-}
+  return (
+    <div>
+      {p.matchData.map((d: MatchData) => (
+        <MatchCard key={d.metadata.matchId} data={d}/>
+      ))}
+    </div>
+  );
+};
 
 export default MatchHistory;
