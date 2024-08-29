@@ -19,7 +19,7 @@
     justify-content: flex-start;
 }
 
-.player-name {
+.match-player-name {
     margin-left: 1vw;
     font-weight: bold;
     white-space: nowrap;

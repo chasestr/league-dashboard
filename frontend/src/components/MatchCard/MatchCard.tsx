@@ -25,7 +25,7 @@ const MatchCard = (props: MatchCardProps) => {
                 <Avatar
                   src={`https://ddragon.leagueoflegends.com/cdn/14.16.1/img/champion/${championName}.png`}
                 />
-                <Box className="player-name">{p.riotIdGameName}</Box>
+                <Box className="match-player-name">{p.riotIdGameName}</Box>
                 <Box className="player-kda">{p.kills}/{p.deaths}/{p.assists}</Box>
               </Box>
             );
@@ -45,7 +45,7 @@ const MatchCard = (props: MatchCardProps) => {
                 <Avatar
                   src={`https://ddragon.leagueoflegends.com/cdn/14.16.1/img/champion/${championName}.png`}
                 />
-                <Box className="player-name">{p.riotIdGameName}</Box>
+                <Box className="match-player-name">{p.riotIdGameName}</Box>
                 <Box className="player-kda">{p.kills}/{p.deaths}/{p.assists}</Box>
               </Box>
             );
