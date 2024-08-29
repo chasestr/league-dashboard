@@ -2,6 +2,7 @@ import React from "react";
 import { MatchData } from "../../types/MatchData";
 import { ParticipantDto } from "../../types/ParticipantDto";
 import { Avatar, Box } from "@mui/material";
+import "./MatchCard.css";
 
 interface MatchCardProps {
   data: MatchData;
@@ -9,8 +10,8 @@ interface MatchCardProps {
 
 const MatchCard = (props: MatchCardProps) => {
   return (
-    <Box display="flex" justifyContent={"space-between"} border={2}>
-      <Box display="flex" flexDirection="column">
+    <Box className="match-card-container">
+      <Box className="team-container">
         {props.data.info.participants
           .filter((p) => p.teamId === 100)
           .map((p: ParticipantDto) => {
@@ -20,16 +21,17 @@ const MatchCard = (props: MatchCardProps) => {
               championName = "Fiddlesticks";
             }
             return (
-              <Box display={"flex"} m={"2vw"} alignItems="center" key={`${props.data.metadata.matchId}+${p.riotIdGameName}+${p.riotIdTagline}`}>
+              <Box className="player-container" key={`${props.data.metadata.matchId}+${p.riotIdGameName}+${p.riotIdTagline}`}>
                 <Avatar
                   src={`https://ddragon.leagueoflegends.com/cdn/14.16.1/img/champion/${championName}.png`}
                 />
-                <Box marginLeft={2}>{p.riotIdGameName}</Box>
+                <Box className="player-name">{p.riotIdGameName}</Box>
+                <Box className="player-kda">{p.kills}/{p.deaths}/{p.assists}</Box>
               </Box>
             );
           })}
       </Box>
-      <Box display="flex" flexDirection="column">
+      <Box className="team-container">
         {props.data.info.participants
           .filter((p) => p.teamId === 200)
           .map((p: ParticipantDto) => {
@@ -39,11 +41,12 @@ const MatchCard = (props: MatchCardProps) => {
               championName = "Fiddlesticks";
             }
             return (
-              <Box display={"flex"} m={"2vw"} alignItems="center" key={`${props.data.metadata.matchId}+${p.riotIdGameName}+${p.riotIdTagline}`}>
+              <Box className="player-container" key={`${props.data.metadata.matchId}+${p.riotIdGameName}+${p.riotIdTagline}`}>
                 <Avatar
                   src={`https://ddragon.leagueoflegends.com/cdn/14.16.1/img/champion/${championName}.png`}
                 />
-                <Box marginLeft={2}>{p.riotIdGameName}</Box>
+                <Box className="player-name">{p.riotIdGameName}</Box>
+                <Box className="player-kda">{p.kills}/{p.deaths}/{p.assists}</Box>
               </Box>
             );
           })}
