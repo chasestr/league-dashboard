@@ -17,14 +17,14 @@ interface PlayerHeaderProps {
 
 const PlayerHeader: React.FC<PlayerHeaderProps> = (p) => {
   return (
-    <Box display={"flex"} m={"5vw"}>
+    <Box className="player-header-container">
       <Avatar
         className="profile-icon"
         alt="Profile Icon"
         src={`http://ddragon.leagueoflegends.com/cdn/14.14.1/img/profileicon/${p.profileIconId}.png`}
         style={{width: "10vw", height: "10vw"}}
       />
-      <Box className="container">
+      <Box className="player-header-data-container">
         <Box className="first-header-container">
           <Box className="player-name">{p.name}</Box>
           <Box className="tag-line">{`#${p.tagLine}`}</Box>
