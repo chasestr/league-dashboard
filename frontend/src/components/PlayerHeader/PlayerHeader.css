@@ -2,7 +2,12 @@
     border-radius: 1vw;
 }
 
-.container {
+.player-header-container {
+    display: flex;
+    margin: 5vw;
+}
+
+.player-header-data-container {
     display: flex;
     margin-left: 2vw;
     flex-direction: column;
