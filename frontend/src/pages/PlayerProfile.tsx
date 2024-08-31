@@ -20,7 +20,7 @@ const PlayerPage: React.FC = () => {
         const response = await axios.get(
           `http://localhost:5000/api/player/players/${gameName}/${tagLine}?region=${region}`
         );
-        setPlayerData({ ...response.data, name: gameName });
+        setPlayerData({ ...response.data, name: gameName, tagline: tagLine });
       } catch (error) {
         console.error("Error fetching player data:", error);
       }
@@ -38,7 +38,6 @@ const PlayerPage: React.FC = () => {
       <PlayerHeader
       {...playerData}
       region={region ? region : ""}
-      tagLine={tagLine ? tagLine : ""}
       />
       <MatchHistory {...playerData}/>
     </div>

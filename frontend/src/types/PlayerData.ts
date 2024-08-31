@@ -4,6 +4,7 @@ import { RankedData } from "./RankedData";
 export interface PlayerData {
   id: string;
   name: string;
+  tagline: string;
   profileIconId: number;
   summonerLevel: number;
   soloData: Array<RankedData>;

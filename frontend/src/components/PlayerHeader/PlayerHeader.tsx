@@ -7,7 +7,7 @@ import "./PlayerHeader.css";
 interface PlayerHeaderProps {
   id: string;
   name: string;
-  tagLine: string;
+  tagline: string;
   region: string;
   profileIconId: number;
   summonerLevel: number;
@@ -27,7 +27,7 @@ const PlayerHeader: React.FC<PlayerHeaderProps> = (p) => {
       <Box className="player-header-data-container">
         <Box className="first-header-container">
           <Box className="player-name">{p.name}</Box>
-          <Box className="tag-line">{`#${p.tagLine}`}</Box>
+          <Box className="tag-line">{`#${p.tagline}`}</Box>
         </Box>
         <Box className="second-header-container">
           <Box>Level {p.summonerLevel}</Box>
