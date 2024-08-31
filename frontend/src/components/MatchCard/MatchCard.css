@@ -1,13 +1,21 @@
 .match-card-container {
     display: flex;
-    justify-content: flex-end;
     background-color: #4597b3;
     margin: 2vw;
     padding: 1vw;
     border-radius: 16px;
 }
 
-.team-container {
+.main-player-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.team-container-1 {
+    margin-left: auto;
+}
+
+.team-container-1, .team-container-2 {
     display: flex;
     flex-direction: column;
 }

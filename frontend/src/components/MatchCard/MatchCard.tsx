@@ -6,12 +6,30 @@ import "./MatchCard.css";
 
 interface MatchCardProps {
   data: MatchData;
+  playerName: string;
+  playerTagline: string;
 }
 
 const MatchCard = (props: MatchCardProps) => {
+  const player = props.data.info.participants.filter(
+    (p) =>
+      p.riotIdGameName === props.playerName &&
+      p.riotIdTagline === props.playerTagline
+  );
+  let playerChampion = player[0].championName;
+  if (playerChampion === "FiddleSticks") {
+    playerChampion = "Fiddlesticks";
+  }
+
   return (
     <Box className="match-card-container">
-      <Box className="team-container">
+      <Box className="main-player-container">
+        <Avatar
+          src={`https://ddragon.leagueoflegends.com/cdn/14.16.1/img/champion/${playerChampion}.png`}
+          style={{width: "7vw", height: "7vw"}}
+        />
+      </Box>
+      <Box className="team-container-1">
         {props.data.info.participants
           .filter((p) => p.teamId === 100)
           .map((p: ParticipantDto) => {
@@ -21,17 +39,22 @@ const MatchCard = (props: MatchCardProps) => {
               championName = "Fiddlesticks";
             }
             return (
-              <Box className="player-container" key={`${props.data.metadata.matchId}+${p.riotIdGameName}+${p.riotIdTagline}`}>
+              <Box
+                className="player-container"
+                key={`${props.data.metadata.matchId}+${p.riotIdGameName}+${p.riotIdTagline}`}
+              >
                 <Avatar
                   src={`https://ddragon.leagueoflegends.com/cdn/14.16.1/img/champion/${championName}.png`}
                 />
                 <Box className="match-player-name">{p.riotIdGameName}</Box>
-                <Box className="player-kda">{p.kills}/{p.deaths}/{p.assists}</Box>
+                <Box className="player-kda">
+                  {p.kills}/{p.deaths}/{p.assists}
+                </Box>
               </Box>
             );
           })}
       </Box>
-      <Box className="team-container">
+      <Box className="team-container-2">
         {props.data.info.participants
           .filter((p) => p.teamId === 200)
           .map((p: ParticipantDto) => {
@@ -41,12 +64,17 @@ const MatchCard = (props: MatchCardProps) => {
               championName = "Fiddlesticks";
             }
             return (
-              <Box className="player-container" key={`${props.data.metadata.matchId}+${p.riotIdGameName}+${p.riotIdTagline}`}>
+              <Box
+                className="player-container"
+                key={`${props.data.metadata.matchId}+${p.riotIdGameName}+${p.riotIdTagline}`}
+              >
                 <Avatar
                   src={`https://ddragon.leagueoflegends.com/cdn/14.16.1/img/champion/${championName}.png`}
                 />
                 <Box className="match-player-name">{p.riotIdGameName}</Box>
-                <Box className="player-kda">{p.kills}/{p.deaths}/{p.assists}</Box>
+                <Box className="player-kda">
+                  {p.kills}/{p.deaths}/{p.assists}
+                </Box>
               </Box>
             );
           })}
