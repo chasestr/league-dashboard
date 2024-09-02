@@ -34,6 +34,7 @@ const MatchCard = (props: MatchCardProps) => {
           .filter((p) => p.teamId === 100)
           .map((p: ParticipantDto) => {
             let championName = p.championName;
+            const isMainPlayer = p.riotIdGameName === props.playerName;
             /* This is only here because there seems to be an issue with the ddragon route name with Fiddlesticks specifically */
             if (championName === "FiddleSticks") {
               championName = "Fiddlesticks";
@@ -46,8 +47,8 @@ const MatchCard = (props: MatchCardProps) => {
                 <Avatar
                   src={`https://ddragon.leagueoflegends.com/cdn/14.16.1/img/champion/${championName}.png`}
                 />
-                <Box className="match-player-name">{p.riotIdGameName}</Box>
-                <Box className="player-kda">
+                <Box className="match-player-name" color={isMainPlayer ? "yellow" : ""}>{p.riotIdGameName}</Box>
+                <Box className="player-kda" color={isMainPlayer ? "yellow" : ""}>
                   {p.kills}/{p.deaths}/{p.assists}
                 </Box>
               </Box>
@@ -59,6 +60,7 @@ const MatchCard = (props: MatchCardProps) => {
           .filter((p) => p.teamId === 200)
           .map((p: ParticipantDto) => {
             let championName = p.championName;
+            const isMainPlayer = p.riotIdGameName === props.playerName;
             /* This is only here because there seems to be an issue with the ddragon route name with Fiddlesticks specifically */
             if (championName === "FiddleSticks") {
               championName = "Fiddlesticks";
@@ -71,8 +73,8 @@ const MatchCard = (props: MatchCardProps) => {
                 <Avatar
                   src={`https://ddragon.leagueoflegends.com/cdn/14.16.1/img/champion/${championName}.png`}
                 />
-                <Box className="match-player-name">{p.riotIdGameName}</Box>
-                <Box className="player-kda">
+                <Box className="match-player-name" color={isMainPlayer ? "yellow" : ""}>{p.riotIdGameName}</Box>
+                <Box className="player-kda" color={isMainPlayer ? "yellow" : ""}>
                   {p.kills}/{p.deaths}/{p.assists}
                 </Box>
               </Box>
