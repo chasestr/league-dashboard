@@ -9,6 +9,7 @@
 .main-player-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .team-container-1 {
