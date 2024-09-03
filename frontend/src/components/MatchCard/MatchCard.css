@@ -8,8 +8,14 @@
 
 .main-player-container {
     display: flex;
+    align-items: center;
+    margin-left: 0.5vw;
+}
+
+.main-player-summoner-spell-container {
+    display: flex;
     flex-direction: column;
-    justify-content: center;
+    margin-left: 0.5vw;
 }
 
 .team-container-1 {

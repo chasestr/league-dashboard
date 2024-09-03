@@ -3,6 +3,7 @@ import { MatchData } from "../../types/MatchData";
 import { ParticipantDto } from "../../types/ParticipantDto";
 import { Avatar, Box } from "@mui/material";
 import "./MatchCard.css";
+import { fetchSummonerSpellName } from "../../fetchSummonerSpellName";
 
 interface MatchCardProps {
   data: MatchData;
@@ -16,10 +17,14 @@ const MatchCard = (props: MatchCardProps) => {
       p.riotIdGameName === props.playerName &&
       p.riotIdTagline === props.playerTagline
   );
+
   let playerChampion = player[0].championName;
   if (playerChampion === "FiddleSticks") {
     playerChampion = "Fiddlesticks";
   }
+
+  let playerSpell1 = fetchSummonerSpellName(player[0].summoner1Id);
+  let playerSpell2 = fetchSummonerSpellName(player[0].summoner2Id);
 
   return (
     <Box className="match-card-container">
@@ -28,6 +33,16 @@ const MatchCard = (props: MatchCardProps) => {
           src={`https://ddragon.leagueoflegends.com/cdn/14.16.1/img/champion/${playerChampion}.png`}
           style={{width: "7vw", height: "7vw"}}
         />
+        <Box className="main-player-summoner-spell-container">
+          <Avatar
+            src={`https://ddragon.leagueoflegends.com/cdn/14.16.1/img/spell/${playerSpell1}.png`}
+            style={{width: "3vw", height: "3vw", borderRadius: "0.5vw", marginBottom: "1vw"}}
+          />
+          <Avatar
+            src={`https://ddragon.leagueoflegends.com/cdn/14.16.1/img/spell/${playerSpell2}.png`}
+            style={{width: "3vw", height: "3vw", borderRadius: "0.5vw"}}
+          />
+        </Box>
       </Box>
       <Box className="team-container-1">
         {props.data.info.participants
@@ -65,6 +80,7 @@ const MatchCard = (props: MatchCardProps) => {
             if (championName === "FiddleSticks") {
               championName = "Fiddlesticks";
             }
+            console.log(p)
             return (
               <Box
                 className="player-container"
