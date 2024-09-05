@@ -4,6 +4,7 @@ import { ParticipantDto } from "../../types/ParticipantDto";
 import { Avatar, Box } from "@mui/material";
 import "./MatchCard.css";
 import { fetchSummonerSpellName } from "../../fetchSummonerSpellName";
+import PlayerItems from "../PlayerItems/PlayerItems";
 
 interface MatchCardProps {
   data: MatchData;
@@ -31,18 +32,24 @@ const MatchCard = (props: MatchCardProps) => {
       <Box className="main-player-container">
         <Avatar
           src={`https://ddragon.leagueoflegends.com/cdn/14.16.1/img/champion/${playerChampion}.png`}
-          style={{width: "7vw", height: "7vw"}}
+          style={{ width: "7vw", height: "7vw" }}
         />
         <Box className="main-player-summoner-spell-container">
           <Avatar
             src={`https://ddragon.leagueoflegends.com/cdn/14.16.1/img/spell/${playerSpell1}.png`}
-            style={{width: "3vw", height: "3vw", borderRadius: "0.5vw", marginBottom: "1vw"}}
+            style={{
+              width: "3vw",
+              height: "3vw",
+              borderRadius: "0.5vw",
+              marginBottom: "1vw",
+            }}
           />
           <Avatar
             src={`https://ddragon.leagueoflegends.com/cdn/14.16.1/img/spell/${playerSpell2}.png`}
-            style={{width: "3vw", height: "3vw", borderRadius: "0.5vw"}}
+            style={{ width: "3vw", height: "3vw", borderRadius: "0.5vw" }}
           />
         </Box>
+        <PlayerItems player={player[0]}/>
       </Box>
       <Box className="team-container-1">
         {props.data.info.participants
@@ -62,8 +69,16 @@ const MatchCard = (props: MatchCardProps) => {
                 <Avatar
                   src={`https://ddragon.leagueoflegends.com/cdn/14.16.1/img/champion/${championName}.png`}
                 />
-                <Box className="match-player-name" color={isMainPlayer ? "yellow" : ""}>{p.riotIdGameName}</Box>
-                <Box className="player-kda" color={isMainPlayer ? "yellow" : ""}>
+                <Box
+                  className="match-player-name"
+                  color={isMainPlayer ? "yellow" : ""}
+                >
+                  {p.riotIdGameName}
+                </Box>
+                <Box
+                  className="player-kda"
+                  color={isMainPlayer ? "yellow" : ""}
+                >
                   {p.kills}/{p.deaths}/{p.assists}
                 </Box>
               </Box>
@@ -80,7 +95,6 @@ const MatchCard = (props: MatchCardProps) => {
             if (championName === "FiddleSticks") {
               championName = "Fiddlesticks";
             }
-            console.log(p)
             return (
               <Box
                 className="player-container"
@@ -89,8 +103,16 @@ const MatchCard = (props: MatchCardProps) => {
                 <Avatar
                   src={`https://ddragon.leagueoflegends.com/cdn/14.16.1/img/champion/${championName}.png`}
                 />
-                <Box className="match-player-name" color={isMainPlayer ? "yellow" : ""}>{p.riotIdGameName}</Box>
-                <Box className="player-kda" color={isMainPlayer ? "yellow" : ""}>
+                <Box
+                  className="match-player-name"
+                  color={isMainPlayer ? "yellow" : ""}
+                >
+                  {p.riotIdGameName}
+                </Box>
+                <Box
+                  className="player-kda"
+                  color={isMainPlayer ? "yellow" : ""}
+                >
                   {p.kills}/{p.deaths}/{p.assists}
                 </Box>
               </Box>
