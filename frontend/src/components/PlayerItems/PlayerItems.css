@@ -1,0 +1,5 @@
+.main-player-items-container {
+    display: flex;
+    margin-left: 0.5vw;
+    align-items: center;
+}
