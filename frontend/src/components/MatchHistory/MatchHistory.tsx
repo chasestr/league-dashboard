@@ -7,7 +7,7 @@ const MatchHistory: React.FC<PlayerData> = (p) => {
   return (
     <div>
       {p.matchData.map((d: MatchData) => (
-        <MatchCard key={d.metadata.matchId} data={d} playerName={p.name} playerTagline={p.tagline}/>
+        <MatchCard region={p.region} key={d.metadata.matchId} data={d} playerName={p.name} playerTagline={p.tagline}/>
       ))}
     </div>
   );
