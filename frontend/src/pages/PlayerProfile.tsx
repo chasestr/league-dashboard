@@ -39,7 +39,7 @@ const PlayerPage: React.FC = () => {
       {...playerData}
       region={region ? region : ""}
       />
-      <MatchHistory {...playerData}/>
+      <MatchHistory {...playerData} region={region ? region : ""}/>
     </div>
   );
 };
