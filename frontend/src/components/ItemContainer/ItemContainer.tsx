@@ -1,4 +1,4 @@
-import { Avatar } from "@mui/material";
+import { Avatar, Box } from "@mui/material";
 import React from "react";
 import "./ItemContainer.css";
 
@@ -16,7 +16,7 @@ const ItemContainer = (props: ItemContainerProps) => {
       />
     );
   }
-  return <></>;
+  return (<Box className="empty-item-container"></Box>);
 };
 
 export default ItemContainer;
