@@ -10,6 +10,7 @@ interface MatchCardProps {
   data: MatchData;
   playerName: string;
   playerTagline: string;
+  region: string;
 }
 
 const MatchCard = (props: MatchCardProps) => {
@@ -49,7 +50,7 @@ const MatchCard = (props: MatchCardProps) => {
             style={{ width: "3vw", height: "3vw", borderRadius: "0.5vw" }}
           />
         </Box>
-        <PlayerItems player={player[0]}/>
+        <PlayerItems player={player[0]} />
       </Box>
       <Box className="team-container-1">
         {props.data.info.participants
@@ -69,12 +70,14 @@ const MatchCard = (props: MatchCardProps) => {
                 <Avatar
                   src={`https://ddragon.leagueoflegends.com/cdn/14.16.1/img/champion/${championName}.png`}
                 />
-                <Box
+                <a
                   className="match-player-name"
-                  color={isMainPlayer ? "yellow" : ""}
+                  style={{ color: isMainPlayer ? "yellow" : "#fff" }}
+                  color={isMainPlayer ? "yellow" : "#fff"}
+                  href={`/player/${props.region}/${p.riotIdGameName}/${p.riotIdTagline}`}
                 >
                   {p.riotIdGameName}
-                </Box>
+                </a>
                 <Box
                   className="player-kda"
                   color={isMainPlayer ? "yellow" : ""}
@@ -103,12 +106,14 @@ const MatchCard = (props: MatchCardProps) => {
                 <Avatar
                   src={`https://ddragon.leagueoflegends.com/cdn/14.16.1/img/champion/${championName}.png`}
                 />
-                <Box
+                <a
                   className="match-player-name"
-                  color={isMainPlayer ? "yellow" : ""}
+                  style={{ color: isMainPlayer ? "yellow" : "#fff" }}
+                  color={isMainPlayer ? "yellow" : "#fff"}
+                  href={`/player/${props.region}/${p.riotIdGameName}/${p.riotIdTagline}`}
                 >
                   {p.riotIdGameName}
-                </Box>
+                </a>
                 <Box
                   className="player-kda"
                   color={isMainPlayer ? "yellow" : ""}
