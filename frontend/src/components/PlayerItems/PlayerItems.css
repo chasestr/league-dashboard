@@ -1,5 +1,14 @@
 .main-player-items-container {
     display: flex;
-    margin-left: 0.5vw;
+    flex-direction: column;
+    margin-left: 1vw;
+    align-items: center;
+    border: 2px solid #fff;
+    border-radius: 20px;
+}
+
+.main-player-items-container-row-1, .main-player-items-container-row-2 {
+    display: flex;
+    margin: 0.5vw;
     align-items: center;
 }
