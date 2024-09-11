@@ -11,13 +11,17 @@ interface PlayerItemsProps {
 const PlayerItems = (props: PlayerItemsProps) => {
   return (
     <Box className="main-player-items-container">
+      <Box className="main-player-items-container-row-1">
         <ItemContainer id={props.player.item0}/>
         <ItemContainer id={props.player.item1}/>
         <ItemContainer id={props.player.item2}/>
         <ItemContainer id={props.player.item3}/>
+      </Box>
+      <Box className="main-player-items-container-row-2">
         <ItemContainer id={props.player.item4}/>
         <ItemContainer id={props.player.item5}/>
         <ItemContainer id={props.player.item6}/>
+      </Box>
     </Box>
   );
 };
