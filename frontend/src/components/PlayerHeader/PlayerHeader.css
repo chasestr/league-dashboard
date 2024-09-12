@@ -1,33 +1,34 @@
 .profile-icon {
-    border-radius: 1vw;
+  border-radius: 1vw;
 }
 
 .player-header-container {
-    display: flex;
-    margin: 5vw;
+  display: flex;
+  margin: 5vw;
 }
 
 .player-header-data-container {
-    display: flex;
-    margin-left: 2vw;
-    flex-direction: column;
+  display: flex;
+  margin-left: 2vw;
+  flex-direction: column;
 }
 
 .first-header-container {
-    display: flex;
-    font-size: 3vw;
-    color: "#fff";
+  display: flex;
+  font-size: 3vw;
+  color: "#fff";
 }
 
 .player-name {
-    font-weight: bold;
+  font-weight: bold;
 }
 
-.tag-line, .region {
-    margin-left: 1vw;
+.tag-line,
+.region {
+  margin-left: 1vw;
 }
 
 .second-header-container {
-    display: flex;
-    font-size: 1.5vw;
+  display: flex;
+  font-size: 1.5vw;
 }

@@ -22,7 +22,7 @@ const PlayerHeader: React.FC<PlayerHeaderProps> = (p) => {
         className="profile-icon"
         alt="Profile Icon"
         src={`http://ddragon.leagueoflegends.com/cdn/14.14.1/img/profileicon/${p.profileIconId}.png`}
-        style={{width: "10vw", height: "10vw"}}
+        style={{ width: "10vw", height: "10vw" }}
       />
       <Box className="player-header-data-container">
         <Box className="first-header-container">
