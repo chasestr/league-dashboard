@@ -1,10 +1,11 @@
-.item-container, .empty-item-container {
-    margin-left: 0.25vw;
+.item-container,
+.empty-item-container {
+  margin-left: 0.25vw;
 }
 
 .empty-item-container {
-    background-color: gray;
-    width: 3vw;
-    height: 3vw;
-    border-radius: 0.5vw;
+  background-color: gray;
+  width: 3vw;
+  height: 3vw;
+  border-radius: 0.5vw;
 }

@@ -16,7 +16,7 @@ const ItemContainer = (props: ItemContainerProps) => {
       />
     );
   }
-  return (<Box className="empty-item-container"></Box>);
+  return <Box className="empty-item-container"></Box>;
 };
 
 export default ItemContainer;
