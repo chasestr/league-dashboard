@@ -1,4 +1,4 @@
 export interface ObjectiveDto {
-    first: boolean;
-    kills: number;
+  first: boolean;
+  kills: number;
 }

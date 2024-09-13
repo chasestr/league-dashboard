@@ -1,5 +1,5 @@
 export interface PerkStatsDto {
-    defense: number;
-    flex: number;
-    offense: number;
+  defense: number;
+  flex: number;
+  offense: number;
 }

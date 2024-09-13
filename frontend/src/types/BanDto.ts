@@ -1,4 +1,4 @@
 export interface BanDto {
-    championId: number;
-    pickTurn: number;
+  championId: number;
+  pickTurn: number;
 }
