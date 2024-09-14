@@ -1,10 +1,10 @@
 import React from "react";
 import { MatchData } from "../../types/MatchData";
-import { ParticipantDto } from "../../types/ParticipantDto";
 import { Avatar, Box } from "@mui/material";
 import "./MatchCard.css";
 import { fetchSummonerSpellName } from "../../fetchSummonerSpellName";
 import PlayerItems from "../PlayerItems/PlayerItems";
+import TeamContainer from "../TeamContainer/TeamContainer";
 
 interface MatchCardProps {
   data: MatchData;
@@ -52,78 +52,22 @@ const MatchCard = (props: MatchCardProps) => {
         </Box>
         <PlayerItems player={player[0]} />
       </Box>
-      <Box className="team-container-1">
-        {props.data.info.participants
-          .filter((p) => p.teamId === 100)
-          .map((p: ParticipantDto) => {
-            let championName = p.championName;
-            const isMainPlayer = p.riotIdGameName === props.playerName;
-            /* This is only here because there seems to be an issue with the ddragon route name with Fiddlesticks specifically */
-            if (championName === "FiddleSticks") {
-              championName = "Fiddlesticks";
-            }
-            return (
-              <Box
-                className="player-container"
-                key={`${props.data.metadata.matchId}+${p.riotIdGameName}+${p.riotIdTagline}`}
-              >
-                <Avatar
-                  src={`https://ddragon.leagueoflegends.com/cdn/14.16.1/img/champion/${championName}.png`}
-                />
-                <a
-                  className="match-player-name"
-                  style={{ color: isMainPlayer ? "yellow" : "#fff" }}
-                  color={isMainPlayer ? "yellow" : "#fff"}
-                  href={`/player/${props.region}/${p.riotIdGameName}/${p.riotIdTagline}`}
-                >
-                  {p.riotIdGameName}
-                </a>
-                <Box
-                  className="player-kda"
-                  color={isMainPlayer ? "yellow" : ""}
-                >
-                  {p.kills}/{p.deaths}/{p.assists}
-                </Box>
-              </Box>
-            );
-          })}
-      </Box>
-      <Box className="team-container-2">
-        {props.data.info.participants
-          .filter((p) => p.teamId === 200)
-          .map((p: ParticipantDto) => {
-            let championName = p.championName;
-            const isMainPlayer = p.riotIdGameName === props.playerName;
-            /* This is only here because there seems to be an issue with the ddragon route name with Fiddlesticks specifically */
-            if (championName === "FiddleSticks") {
-              championName = "Fiddlesticks";
-            }
-            return (
-              <Box
-                className="player-container"
-                key={`${props.data.metadata.matchId}+${p.riotIdGameName}+${p.riotIdTagline}`}
-              >
-                <Avatar
-                  src={`https://ddragon.leagueoflegends.com/cdn/14.16.1/img/champion/${championName}.png`}
-                />
-                <a
-                  className="match-player-name"
-                  style={{ color: isMainPlayer ? "yellow" : "#fff" }}
-                  color={isMainPlayer ? "yellow" : "#fff"}
-                  href={`/player/${props.region}/${p.riotIdGameName}/${p.riotIdTagline}`}
-                >
-                  {p.riotIdGameName}
-                </a>
-                <Box
-                  className="player-kda"
-                  color={isMainPlayer ? "yellow" : ""}
-                >
-                  {p.kills}/{p.deaths}/{p.assists}
-                </Box>
-              </Box>
-            );
-          })}
-      </Box>
+      <TeamContainer
+        participants={props.data.info.participants}
+        className="team-container-1"
+        mainPlayerName={props.playerName}
+        metadata={props.data.metadata}
+        region={props.region}
+        teamId={100}
+      />
+      <TeamContainer
+        participants={props.data.info.participants}
+        className="team-container-2"
+        mainPlayerName={props.playerName}
+        metadata={props.data.metadata}
+        region={props.region}
+        teamId={200}
+      />
     </Box>
   );
 };
