@@ -9,7 +9,7 @@
 .main-player-container {
   display: flex;
   align-items: center;
-  margin-left: 0.5vw;
+  margin-left: 1vw;
 }
 
 .main-player-summoner-spell-container {
@@ -38,4 +38,19 @@
 .player-kda {
   margin-left: 0.5vw;
   margin-right: 1vw;
+}
+
+.victory-bar,
+.loss-bar {
+  width: 0.75vw;
+  height: auto;
+  border-radius: 16px;
+}
+
+.victory-bar {
+  background-color: green;
+}
+
+.loss-bar {
+  background-color: red;
 }
