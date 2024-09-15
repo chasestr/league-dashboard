@@ -33,6 +33,11 @@ const MatchCard = (props: MatchCardProps) => {
       className="match-card-container"
       bgcolor={player[0].win ? "#9acf97" : "#cf8c8a"}
     >
+      {player[0].win ? (
+        <Box className="victory-bar" />
+      ) : (
+        <Box className="loss-bar" />
+      )}
       <Box className="main-player-container">
         <Avatar
           src={`https://ddragon.leagueoflegends.com/cdn/14.16.1/img/champion/${playerChampion}.png`}
