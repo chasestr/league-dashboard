@@ -29,7 +29,10 @@ const MatchCard = (props: MatchCardProps) => {
   let playerSpell2 = fetchSummonerSpellName(player[0].summoner2Id);
 
   return (
-    <Box className="match-card-container">
+    <Box
+      className="match-card-container"
+      bgcolor={player[0].win ? "#9acf97" : "#cf8c8a"}
+    >
       <Box className="main-player-container">
         <Avatar
           src={`https://ddragon.leagueoflegends.com/cdn/14.16.1/img/champion/${playerChampion}.png`}
