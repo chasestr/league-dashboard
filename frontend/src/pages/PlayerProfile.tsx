@@ -36,7 +36,7 @@ const PlayerPage: React.FC = () => {
 
   return (
     <div>
-      <PageHeader/>
+      <PageHeader />
       <PlayerHeader {...playerData} region={region ? region : ""} />
       <MatchHistory {...playerData} region={region ? region : ""} />
     </div>

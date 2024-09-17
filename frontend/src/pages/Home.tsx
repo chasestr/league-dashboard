@@ -6,7 +6,7 @@ import PageHeader from "../components/PageHeader/PageHeader";
 const Home: React.FC = () => {
   return (
     <Box>
-      <PageHeader/>
+      <PageHeader />
       <SearchBar />
     </Box>
   );
