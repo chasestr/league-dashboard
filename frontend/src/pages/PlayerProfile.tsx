@@ -4,6 +4,7 @@ import axios from "axios";
 import PlayerHeader from "../components/PlayerHeader/PlayerHeader";
 import MatchHistory from "../components/MatchHistory/MatchHistory";
 import { PlayerData } from "../types/PlayerData";
+import PageHeader from "../components/PageHeader/PageHeader";
 
 const PlayerPage: React.FC = () => {
   const { region, gameName, tagLine } = useParams<{
@@ -35,6 +36,7 @@ const PlayerPage: React.FC = () => {
 
   return (
     <div>
+      <PageHeader/>
       <PlayerHeader {...playerData} region={region ? region : ""} />
       <MatchHistory {...playerData} region={region ? region : ""} />
     </div>
