@@ -9,7 +9,7 @@ const PageHeader = () => {
       <a href="/" className="page-header-text">
         LoLDash
       </a>
-      <SearchBar/>
+      <SearchBar />
     </Box>
   );
 };
