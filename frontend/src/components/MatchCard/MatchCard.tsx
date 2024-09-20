@@ -5,6 +5,7 @@ import "./MatchCard.css";
 import { fetchSummonerSpellName } from "../../fetchSummonerSpellName";
 import PlayerItems from "../PlayerItems/PlayerItems";
 import TeamContainer from "../TeamContainer/TeamContainer";
+import PlayerKDA from "../PlayerKDA/PlayerKDA";
 
 interface MatchCardProps {
   data: MatchData;
@@ -59,6 +60,7 @@ const MatchCard = (props: MatchCardProps) => {
           />
         </Box>
         <PlayerItems player={player[0]} />
+        <PlayerKDA kills={player[0].kills} deaths={player[0].deaths} assists={player[0].assists}/>
       </Box>
       <TeamContainer
         participants={props.data.info.participants}
