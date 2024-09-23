@@ -22,7 +22,6 @@ export const getPlayerData = async (
   const { platform, regional } = regionConfig;
 
   try {
-    // Fetch PUUID using gameName and tagLine
     const accountResponse = await axios.get(
       `https://${regional}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${gameName}/${tagLine}`,
       {
@@ -33,7 +32,6 @@ export const getPlayerData = async (
     );
     const { puuid } = accountResponse.data;
 
-    // Fetch player data using PUUID
     const playerResponse = await axios.get(
       `https://${platform}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${puuid}`,
       {
@@ -43,7 +41,6 @@ export const getPlayerData = async (
       }
     );
 
-    // Fetch ranked data using summoner ID
     const rankedResponse = await axios.get(
       `https://${platform}.api.riotgames.com/lol/league/v4/entries/by-summoner/${playerResponse.data.id}`,
       {
