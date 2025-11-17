@@ -41,8 +41,16 @@ export const getPlayerData = async (
       }
     );
 
+    // const rankedResponse = await axios.get(
+    //   `https://${platform}.api.riotgames.com/lol/league/v4/entries/by-summoner/${playerResponse.data.id}`,
+    //   {
+    //     headers: {
+    //       "X-Riot-Token": RIOT_API_KEY,
+    //     },
+    //   }
+    // );
     const rankedResponse = await axios.get(
-      `https://${platform}.api.riotgames.com/lol/league/v4/entries/by-summoner/${playerResponse.data.id}`,
+      `https://${platform}.api.riotgames.com/lol/league/v4/entries/by-puuid/${puuid}`,
       {
         headers: {
           "X-Riot-Token": RIOT_API_KEY,
